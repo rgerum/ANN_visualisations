@@ -142,6 +142,14 @@ input {
         Kernel = <input class="input_filterx" type="number" min="1" max="4" value="3">, <input class="input_filtery" type="number" min="1" max="4" value="2">, <input class="input_filterz" type="number" min="1" max="3" value="1"><br/>
         Strides = <input class="input_stridex" type="number" min="1" max="2" value="1">, <input class="input_stridey" type="number" min="1" max="2" value="1"><br/>
         Padding = <input class="input_paddingx" type="number" min="0" max="4" value="0">, <input class="input_paddingy" type="number" min="0" max="4" value="0"><br>
+
+        Pooling = <div class="dropdown">
+  <div class="dropbtn">MaxPool2d</div>
+  <div class="dropdown-content">
+    <a class="select_maxpool" href="#">MaxPool2d</a>
+    <a class="select_avgpool" href="#">AvgPool2d</a>
+  </div>
+        </div>
         <!-- default -->
 
         <!-- padding
@@ -214,7 +222,7 @@ var svg = d3.select(dom_target).select(".image")
 var box_s = 50;
 var box_z = 10;
 var show_single_elements = true;
-var group_func = undefined;
+var group_func = "max";
 function mulberry32(a) {
     return function() {
       var t = a += 0x6D2B79F5;
@@ -750,8 +758,8 @@ dom_target.querySelector(".input_stridex").onchange = ()=>{init()}
 dom_target.querySelector(".input_stridey").onchange = ()=>{init()}
 dom_target.querySelector(".play_fast").onchange = ()=>{init()}
 
-//dom_target.querySelector(".select_maxpool").onclick = ()=>{group_func="max"; dom_target.querySelector(".dropbtn").innerText = "MaxPool2d"; init()}
-//dom_target.querySelector(".select_avgpool").onclick = ()=>{group_func="avg"; dom_target.querySelector(".dropbtn").innerText = "AvgPool2d"; init()}
+dom_target.querySelector(".select_maxpool").onclick = ()=>{group_func="max"; dom_target.querySelector(".dropbtn").innerText = "MaxPool2d"; init()}
+dom_target.querySelector(".select_avgpool").onclick = ()=>{group_func="avg"; dom_target.querySelector(".dropbtn").innerText = "AvgPool2d"; init()}
 
 })();
 </script>
